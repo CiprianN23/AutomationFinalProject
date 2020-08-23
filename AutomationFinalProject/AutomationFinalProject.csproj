@@ -62,8 +62,8 @@
     <Compile Include="PageObjects\HomePage.Selectors.cs" />
     <Compile Include="PageObjects\ItemOverviewPage.Actions.cs" />
     <Compile Include="PageObjects\ItemOverviewPage.Selectors.cs" />
-    <Compile Include="PageObjects\SearchedItemsPage.Actions.cs" />
-    <Compile Include="PageObjects\SearchedItemsPage.Selectors.cs" />
+    <Compile Include="PageObjects\SearchedProductsPage.Actions.cs" />
+    <Compile Include="PageObjects\SearchedProductsPage.Selectors.cs" />
     <Compile Include="PageObjects\ShoppingCartPage.Actions.cs" />
     <Compile Include="PageObjects\ShoppingCartPage.Selectors.cs" />
     <Compile Include="PageObjects\WishlistPage.Actions.cs" />
