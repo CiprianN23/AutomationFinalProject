@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AutomationFinalProject.PageObjects;
+using NUnit.Framework;
 
 namespace AutomationFinalProject
 {
@@ -7,6 +8,13 @@ namespace AutomationFinalProject
         [Test]
         public void Test1()
         {
+            HomePage myHomePage = new HomePage(Driver);
+            myHomePage.InputTextInSearchBar("webcam");
+
+            SearchedProductsPage searchedProductsPage = new SearchedProductsPage(Driver);
+            //searchedProductsPage.SortProductsByText("Pret crescator");
+            searchedProductsPage.ClickOnSpecifiedProductRatingByIndex(0);
+            searchedProductsPage.ClickOnSpecifiedProductByIndex(2);
         }
     }
 }

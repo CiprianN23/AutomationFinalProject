@@ -10,5 +10,11 @@ namespace AutomationFinalProject.PageObjects
         {
             _driver = driver;
         }
+
+        public void InputTextInSearchBar(string searchCriteria)
+        {
+            SearchBar.SendKeys(searchCriteria);
+            SearchBar.SendKeys(Keys.Enter);
+        }
     }
 }
