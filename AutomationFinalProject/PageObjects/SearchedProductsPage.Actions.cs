@@ -2,6 +2,8 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Linq;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace AutomationFinalProject.PageObjects
 {
@@ -41,9 +43,12 @@ namespace AutomationFinalProject.PageObjects
             if (index >= ProductRatingList.Count())
                 return;
 
+            Actions  action = new Actions(_driver);
+            action.MoveToElement(AdvancedProductFilterButton).DoubleClick().Perform();
             // Button not clicked
-            AdvancedProductFilterButton.Click();
+            //AdvancedProductFilterButton.Click();
 
+            _driver.ExecuteJavaScript("window.scrollTo(0, document.body.scrollHeight)");
             ProductRatingList.ElementAt(index).Click();
         }
     }
