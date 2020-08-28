@@ -11,8 +11,8 @@ namespace AutomationFinalProject.PageObjects
 
         private IWebElement ProductSortDropDown => _driverWait.Until(ExpectedConditions.ElementIsVisible(By.Id("sortsel")));
 
-        private IWebElement AdvancedProductFilterButton => 
-            _driverWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//li[@id='filters_advanced_link']//a")));
+        private IWebElement AdvancedProductFilterButton =>
+            _driverWait.Until(ExpectedConditions.ElementIsVisible(By.Id("filters_advanced_link")));
 
         private IEnumerable<IWebElement> ProductRatingList =>
             _driverWait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='panel panel-default']//b[contains(text(), 'Rating')]/ancestor::node()[3]//li")));

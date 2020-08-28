@@ -37,18 +37,15 @@ namespace AutomationFinalProject.PageObjects
 
         public void ClickOnSpecifiedProductRatingByIndex(int index)
         {
+            AdvancedProductFilterButton.Click();
+
             if (ProductRatingList.Any() == false)
                 return;
 
             if (index >= ProductRatingList.Count())
                 return;
 
-            Actions  action = new Actions(_driver);
-            action.MoveToElement(AdvancedProductFilterButton).DoubleClick().Perform();
-            // Button not clicked
-            //AdvancedProductFilterButton.Click();
-
-            _driver.ExecuteJavaScript("window.scrollTo(0, document.body.scrollHeight)");
+            ScrollHelper.ScrollToView(_driver, ProductRatingList.ElementAt(index));
             ProductRatingList.ElementAt(index).Click();
         }
     }
