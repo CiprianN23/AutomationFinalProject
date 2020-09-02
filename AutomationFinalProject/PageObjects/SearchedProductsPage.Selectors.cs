@@ -14,6 +14,9 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement AdvancedProductFilterButton =>
             _driverWait.Until(ExpectedConditions.ElementIsVisible(By.Id("filters_advanced_link")));
 
+        private IWebElement StandardRatingFilterButton =>
+            _driverWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(text(), 'Rating minim')]")));
+
         private IEnumerable<IWebElement> ProductRatingList =>
             _driverWait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='panel panel-default']//b[contains(text(), 'Rating')]/ancestor::node()[3]//li")));
     }

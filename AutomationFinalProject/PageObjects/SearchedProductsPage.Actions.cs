@@ -2,8 +2,6 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Linq;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.Extensions;
 
 namespace AutomationFinalProject.PageObjects
 {
@@ -33,6 +31,11 @@ namespace AutomationFinalProject.PageObjects
         {
             SelectElement selectSort = new SelectElement(ProductSortDropDown);
             selectSort.SelectByText(text);
+        }
+
+        public void ClickOnStandardRating()
+        {
+            StandardRatingFilterButton.Click();
         }
 
         public void ClickOnSpecifiedProductRatingByIndex(int index)

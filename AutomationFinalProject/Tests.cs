@@ -6,38 +6,48 @@ namespace AutomationFinalProject
     public class Tests : Hooks
     {
         [Test]
-        public void Test1()
-        {
-            HomePage myHomePage = new HomePage(Driver);
-            myHomePage.InputTextInSearchBar("webcam");
-
-            SearchedProductsPage searchedProductsPage = new SearchedProductsPage(Driver);
-            //searchedProductsPage.SortProductsByText("Pret crescator");
-            searchedProductsPage.ClickOnSpecifiedProductRatingByIndex(0);
-            searchedProductsPage.ClickOnSpecifiedProductByIndex(2);
-        }
-
-        [Test]
-        public void AddMultipleProductsToCart()
+        public void AddProductToCart()
         {
             HomePage myHomePage = new HomePage(Driver);
             SearchedProductsPage mySearchedProductsPage = new SearchedProductsPage(Driver);
             ProductOverviewPage myProductOverviewPage = new ProductOverviewPage(Driver);
+            ShoppingCartPage myShoppingCartPage = new ShoppingCartPage(Driver);
 
-            myHomePage.GoToSmartphoneCategory();
+            myHomePage.ClickOnProductCategory("Mobile", "Smartphone");
             mySearchedProductsPage.SortProductsByText("Rating clienti");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(1);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
+            Assert.IsTrue(myShoppingCartPage.EmptyShoppingCartButton.Displayed);
+        }
 
-            myHomePage.GoToBluetoothEarphoneCategory();
-            mySearchedProductsPage.SortProductsByText("Top vanzari");
-            mySearchedProductsPage.ClickOnSpecifiedProductByIndex(2);
-            myProductOverviewPage.ClickOnAddToShoppingCartButton();
+        [Test]
+        public void CreateWishlsitWithCartProducts()
+        {
+            HomePage myHomePage = new HomePage(Driver);
+            SearchedProductsPage mySearchedProductsPage = new SearchedProductsPage(Driver);
+            ProductOverviewPage myProductOverviewPage = new ProductOverviewPage(Driver);
+            ShoppingCartPage myShoppingCartPage = new ShoppingCartPage(Driver);
+            WishlistPage myWishlistPage = new WishlistPage(Driver);
 
-            myHomePage.GoToGameConsoleCategory();
-            mySearchedProductsPage.SortProductsByText("Stoc si disponibilitate");
+            myHomePage.ClickOnProductCategory("Componente", "Placi video");
+            mySearchedProductsPage.SortProductsByText("Rating clienti");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(0);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
+            
+            myHomePage.ClickOnProductCategory("Componente", "Procesoare");
+            mySearchedProductsPage.SortProductsByText("Numar vizualizari");
+            mySearchedProductsPage.ClickOnSpecifiedProductByIndex(1);
+            myProductOverviewPage.ClickOnAddToShoppingCartButton();
+
+            myHomePage.ClickOnProductCategory("Componente", "Placi de baza");
+            mySearchedProductsPage.SortProductsByText("Top vanzari");
+            mySearchedProductsPage.ClickOnSpecifiedProductByIndex(0);
+            myProductOverviewPage.ClickOnAddToShoppingCartButton();
+
+            myShoppingCartPage.ClickOnWishListButton();
+
+            myWishlistPage.CreateWishlist("Automation test", "This a wishlist create by automation testing", "Autoamtion", "C#", "automationc#@someemail.com");
+            Assert.IsTrue(myWishlistPage.WishlistConfidentialityCheckBox.Displayed);
         }
     }
 }

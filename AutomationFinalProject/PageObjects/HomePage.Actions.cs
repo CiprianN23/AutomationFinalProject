@@ -1,7 +1,7 @@
-﻿using System;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
+using OpenQA.Selenium.Interactions;
 
 namespace AutomationFinalProject.PageObjects
 {
@@ -22,25 +22,11 @@ namespace AutomationFinalProject.PageObjects
             SearchBar.SendKeys(Keys.Enter);
         }
 
-        public void GoToSmartphoneCategory()
+        public void ClickOnProductCategory(string category, string subCategory)
         {
             Actions action = new Actions(_driver);
-            action.MoveToElement(PhoneCategoryButton).Perform();
-            SmartphoneButton.Click();
-        }
-
-        public void GoToBluetoothEarphoneCategory()
-        {
-            Actions action = new Actions(_driver);
-            action.MoveToElement(PhoneCategoryButton).Perform();
-            BluetoothEarphonesButton.Click();
-        }
-
-        public void GoToGameConsoleCategory()
-        {
-            Actions action = new Actions(_driver);
-            action.MoveToElement(GamingCategoryButton).Perform();
-            GameConsoleButton.Click();
+            action.MoveToElement(ProductCategoryButton(category)).Perform();
+            ProductSubCategoryButton(category, subCategory).Click();
         }
     }
 }

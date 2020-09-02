@@ -10,5 +10,10 @@ namespace AutomationFinalProject.PageObjects
         {
             _driver = driver;
         }
+
+        public void ClickOnWishListButton()
+        {
+            SaveAsWishlistButton.Click();
+        }
     }
 }
