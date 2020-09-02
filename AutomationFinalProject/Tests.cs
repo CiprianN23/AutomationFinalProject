@@ -49,5 +49,16 @@ namespace AutomationFinalProject
             myWishlistPage.CreateWishlist("Automation test", "This a wishlist create by automation testing", "Autoamtion", "C#", "automationc#@someemail.com");
             Assert.IsTrue(myWishlistPage.WishlistConfidentialityCheckBox.Displayed);
         }
+
+        [Test]
+        public void LoginWithInvalidData()
+        {
+            HomePage myHomePage = new HomePage(Driver);
+            LoginRegisterPage myLoginRegisterPage = new LoginRegisterPage(Driver);
+
+            myHomePage.GoToLoginPage();
+            myLoginRegisterPage.LoginIntoApplication("automationtest@somemail.com", "gegegergaswe");
+            Assert.IsTrue(myLoginRegisterPage.LoginInvalidError.Displayed);
+        }
     }
 }

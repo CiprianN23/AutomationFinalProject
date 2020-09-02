@@ -9,5 +9,6 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement ShoppingCartButton => _driver.FindElement(By.Id("shopping_cart_no"));
         private IWebElement ProductCategoryButton(string category) => _driverWait.Until(ExpectedConditions.ElementIsVisible(By.XPath($"//ul[@id='top_menu']//a[text()='{category}']")));
         private IWebElement ProductSubCategoryButton(string category, string subCategory) => _driver.FindElement(By.XPath($"//ul[@id='top_menu']//a[contains(text(), '{category}')]/..//a[text()='{subCategory}']"));
+        private IWebElement MyAccountButton => _driver.FindElement(By.Id("h_account_top"));
     }
 }

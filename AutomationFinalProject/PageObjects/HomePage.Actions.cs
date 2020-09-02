@@ -28,5 +28,10 @@ namespace AutomationFinalProject.PageObjects
             action.MoveToElement(ProductCategoryButton(category)).Perform();
             ProductSubCategoryButton(category, subCategory).Click();
         }
+
+        public void GoToLoginPage()
+        {
+            MyAccountButton.Click();
+        }
     }
 }

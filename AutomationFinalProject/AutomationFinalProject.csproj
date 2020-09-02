@@ -60,6 +60,8 @@
     <Compile Include="Hooks.cs" />
     <Compile Include="PageObjects\HomePage.Actions.cs" />
     <Compile Include="PageObjects\HomePage.Selectors.cs" />
+    <Compile Include="PageObjects\LoginRegisterPage.Actions.cs" />
+    <Compile Include="PageObjects\LoginRegisterPage.Selectors.cs" />
     <Compile Include="PageObjects\ProductOverviewPage.Actions.cs" />
     <Compile Include="PageObjects\ProductOverviewPage.Selectors.cs" />
     <Compile Include="PageObjects\SearchedProductsPage.Actions.cs" />
