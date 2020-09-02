@@ -13,7 +13,7 @@ namespace AutomationFinalProject
         public void SetUp()
         {
             Driver = new ChromeDriver();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl("https://www.pcgarage.ro/");
         }
