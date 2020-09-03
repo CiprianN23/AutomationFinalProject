@@ -92,5 +92,20 @@ namespace AutomationFinalProject
             myHomePage.InputTextInSearchBar("Monitor LED ViewSonic VP3881 Curbat 37.5 inch 5ms Negru 60 Hz");
             Assert.IsTrue(myProductOverviewPage.ProductNotInStockError.Displayed);
         }
+
+        [Test]
+        public void EmptyShoppingCart()
+        {
+            HomePage myHomePage = new HomePage(Driver);
+            SearchedProductsPage mySearchedProductsPage = new SearchedProductsPage(Driver);
+            ProductOverviewPage myProductOverviewPage = new ProductOverviewPage(Driver);
+            ShoppingCartPage myShoppingCartPage = new ShoppingCartPage(Driver);
+
+            myHomePage.ClickOnProductCategory("Mobile", "Smartphone");
+            mySearchedProductsPage.ClickOnSpecifiedProductByIndex(3);
+            myProductOverviewPage.ClickOnAddToShoppingCartButton();
+            myShoppingCartPage.ClickOnEmptyCartButton();
+            Assert.IsTrue(myShoppingCartPage.EmptyShoppingCartMessage.Displayed);
+        }
     }
 }

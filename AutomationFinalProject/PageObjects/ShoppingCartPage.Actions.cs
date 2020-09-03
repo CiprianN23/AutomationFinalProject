@@ -15,5 +15,10 @@ namespace AutomationFinalProject.PageObjects
         {
             SaveAsWishlistButton.Click();
         }
+
+        public void ClickOnEmptyCartButton()
+        {
+            EmptyShoppingCartButton.Click();
+        }
     }
 }
