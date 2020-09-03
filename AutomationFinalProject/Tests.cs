@@ -82,5 +82,15 @@ namespace AutomationFinalProject
             myLoginRegisterPage.LoginIntoApplication("automation2020@gmail.com", "123456");
             Assert.IsTrue(myLoginRegisterPage.LoginSuccessElement.Displayed);
         }
+
+        [Test]
+        public void CheckSpecificProductAvailability()
+        {
+            HomePage myHomePage = new HomePage(Driver);
+            ProductOverviewPage myProductOverviewPage = new ProductOverviewPage(Driver);
+
+            myHomePage.InputTextInSearchBar("Monitor LED ViewSonic VP3881 Curbat 37.5 inch 5ms Negru 60 Hz");
+            Assert.IsTrue(myProductOverviewPage.ProductNotInStockError.Displayed);
+        }
     }
 }
