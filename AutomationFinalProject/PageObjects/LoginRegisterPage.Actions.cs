@@ -16,5 +16,17 @@ namespace AutomationFinalProject.PageObjects
             LoginPasswordTextField.SendKeys(password);
             LoginButton.Click();
         }
+
+        public void RegisterIntoApplication(string firstName, string lastName, string phoneNumber, string email, string password, string repeatPassword)
+        {
+            RegisterFirstNameTextField.SendKeys(firstName);
+            RegisterLastNameTextField.SendKeys(lastName);
+            RegisterPhoneNumberTextField.SendKeys(phoneNumber);
+            RegisterEmailTextField.SendKeys(email);
+            RegisterPasswordTextField.SendKeys(password);
+            RegisterRepeatPasswordTextField.SendKeys(repeatPassword);
+            ScrollHelper.ScrollToView(_driver, RegisterButton);
+            RegisterButton.Click();
+        }
     }
 }

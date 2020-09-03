@@ -60,5 +60,16 @@ namespace AutomationFinalProject
             myLoginRegisterPage.LoginIntoApplication("automationtest@somemail.com", "gegegergaswe");
             Assert.IsTrue(myLoginRegisterPage.LoginInvalidError.Displayed);
         }
+
+        [Test]
+        public void RegisterWithoutClickingConfidentialityBox()
+        {
+            HomePage myHomePage = new HomePage(Driver);
+            LoginRegisterPage myLoginRegisterPage = new LoginRegisterPage(Driver);
+
+            myHomePage.GoToLoginPage();
+            myLoginRegisterPage.RegisterIntoApplication("Test", "Test", "0711111111", "automation@someemail.com", "123456", "123456");
+            Assert.IsTrue(myLoginRegisterPage.RegisterConfidentialityError.Displayed);
+        }
     }
 }
