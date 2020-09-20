@@ -1,4 +1,5 @@
-﻿using AutomationFinalProject.PageObjects;
+﻿using System.Linq;
+using AutomationFinalProject.PageObjects;
 using NUnit.Framework;
 
 namespace AutomationFinalProject
@@ -13,7 +14,7 @@ namespace AutomationFinalProject
             ProductOverviewPage myProductOverviewPage = new ProductOverviewPage(Driver);
             ShoppingCartPage myShoppingCartPage = new ShoppingCartPage(Driver);
 
-            myHomePage.ClickOnProductCategory("Mobile", "Smartphone");
+            myHomePage.ClickOnProductSubCategory("Mobile", "Smartphone");
             mySearchedProductsPage.SortProductsByText("Rating clienti");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(1);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
@@ -27,19 +28,19 @@ namespace AutomationFinalProject
             SearchedProductsPage mySearchedProductsPage = new SearchedProductsPage(Driver);
             ProductOverviewPage myProductOverviewPage = new ProductOverviewPage(Driver);
             ShoppingCartPage myShoppingCartPage = new ShoppingCartPage(Driver);
-            WishlistPage myWishlistPage = new WishlistPage(Driver);
+            CreateWishlistPage myWishlistPage = new CreateWishlistPage(Driver);
 
-            myHomePage.ClickOnProductCategory("Componente", "Placi video");
+            myHomePage.ClickOnProductSubCategory("Componente", "Placi video");
             mySearchedProductsPage.SortProductsByText("Rating clienti");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(0);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
             
-            myHomePage.ClickOnProductCategory("Componente", "Procesoare");
+            myHomePage.ClickOnProductSubCategory("Componente", "Procesoare");
             mySearchedProductsPage.SortProductsByText("Numar vizualizari");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(1);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
 
-            myHomePage.ClickOnProductCategory("Componente", "Placi de baza");
+            myHomePage.ClickOnProductSubCategory("Componente", "Placi de baza");
             mySearchedProductsPage.SortProductsByText("Top vanzari");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(0);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
@@ -101,11 +102,90 @@ namespace AutomationFinalProject
             ProductOverviewPage myProductOverviewPage = new ProductOverviewPage(Driver);
             ShoppingCartPage myShoppingCartPage = new ShoppingCartPage(Driver);
 
-            myHomePage.ClickOnProductCategory("Mobile", "Smartphone");
+            myHomePage.ClickOnProductSubCategory("Mobile", "Smartphone");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(3);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
             myShoppingCartPage.ClickOnEmptyCartButton();
             Assert.IsTrue(myShoppingCartPage.EmptyShoppingCartMessage.Displayed);
+        }
+
+        [Test]
+        public void ClickOnEveryProductCategoryButton()
+        {
+            HomePage myhHomePage = new HomePage(Driver);
+
+            myhHomePage.ClickOnProductCategory("Laptop");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Mobile");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Sisteme Gaming & Office");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Componente");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Gaming");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Televizoare");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Periferice & Monitoare");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Software");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Printing");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Retelistica & UPS");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Audio/Video");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Casa & ingrijire");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Home Gadgets");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Sport & Sanatate");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Auto & Calatorii");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+
+            myhHomePage.ClickOnProductCategory("Servicii");
+            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
+        }
+
+        [Test]
+        public void SearchInvalidWishList()
+        {
+            HomePage myHomePage = new HomePage(Driver);
+            WishListPage myWishListPage = new WishListPage(Driver);
+
+            myHomePage.GoToWishListPage();
+            myWishListPage.SearchForWishList("euijgerugherhgkfwi914u8");
+            Assert.IsTrue(myWishListPage.NoWishListFoundText.Displayed);
+        }
+
+        [Test]
+        public void CheckFilters()
+        {
+            HomePage myHomePage = new HomePage(Driver);
+            SearchedProductsPage mySearchedProductsPage = new SearchedProductsPage(Driver);
+
+            myHomePage.ClickOnProductSubCategory("Mobile", "Smartphone");
+            mySearchedProductsPage.ClickOnSpecifiedFilterByText("Pret", 0);
+            mySearchedProductsPage.ClickOnSpecifiedFilterByText("Producator", 0);
+            mySearchedProductsPage.ClickOnSpecifiedFilterByText("Garantie comerciala", 0);
+
+            Assert.IsTrue(mySearchedProductsPage.SelectedFiltersList.Count() == 3);
         }
     }
 }

@@ -11,13 +11,11 @@ namespace AutomationFinalProject.PageObjects
 
         private IWebElement ProductSortDropDown => _driverWait.Until(ExpectedConditions.ElementIsVisible(By.Id("sortsel")));
 
-        private IWebElement AdvancedProductFilterButton =>
-            _driverWait.Until(ExpectedConditions.ElementIsVisible(By.Id("filters_advanced_link")));
+        private IWebElement FilterCategoryButton(string filterCategoryName) => _driver.FindElement(By.XPath($"//span[@class='filters_name' and text()='{filterCategoryName}']"));
+        private IEnumerable<IWebElement> FilterNameButton(string filterCategoryname) => 
+            _driver.FindElements(By.XPath($"//span[@class='filters_name' and text()='{filterCategoryname}']//..//..//..//a[@class='filters_name_num']"));
 
-        private IWebElement StandardRatingFilterButton =>
-            _driverWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(text(), 'Rating minim')]")));
-
-        private IEnumerable<IWebElement> ProductRatingList =>
-            _driverWait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//div[@class='panel panel-default']//b[contains(text(), 'Rating')]/ancestor::node()[3]//li")));
+        public IEnumerable<IWebElement> SelectedFiltersList => 
+            _driver.FindElements(By.XPath("//div[@id='filters_standard']//ul[@class='list-unstyled filters-applied']//a[not(contains(text(), 'Sterge toate filtrele'))]"));
     }
 }

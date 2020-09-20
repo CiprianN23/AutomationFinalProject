@@ -7,8 +7,8 @@ namespace AutomationFinalProject.PageObjects
 {
     public partial class SearchedProductsPage
     {
-        private IWebDriver _driver;
-        private WebDriverWait _driverWait;
+        private readonly IWebDriver _driver;
+        private readonly WebDriverWait _driverWait;
 
         public SearchedProductsPage(IWebDriver driver)
         {
@@ -33,23 +33,24 @@ namespace AutomationFinalProject.PageObjects
             selectSort.SelectByText(text);
         }
 
-        public void ClickOnStandardRating()
+        public void ClickOnSpecifiedFilterCategoryByText(string filterCategoryName)
         {
-            StandardRatingFilterButton.Click();
+            ScrollHelper.ScrollToView(_driver, FilterCategoryButton(filterCategoryName));
+            FilterCategoryButton(filterCategoryName).Click();
         }
 
-        public void ClickOnSpecifiedProductRatingByIndex(int index)
+        public void ClickOnSpecifiedFilterByText(string filterCategoryName, int filterIndex)
         {
-            AdvancedProductFilterButton.Click();
+            ClickOnSpecifiedFilterCategoryByText(filterCategoryName);
 
-            if (ProductRatingList.Any() == false)
+            if (FilterNameButton(filterCategoryName).Any() == false)
                 return;
 
-            if (index >= ProductRatingList.Count())
+            if (filterIndex >= FilterNameButton(filterCategoryName).Count())
                 return;
 
-            ScrollHelper.ScrollToView(_driver, ProductRatingList.ElementAt(index));
-            ProductRatingList.ElementAt(index).Click();
+            FilterNameButton(filterCategoryName).ElementAt(filterIndex).Click();
         }
+
     }
 }

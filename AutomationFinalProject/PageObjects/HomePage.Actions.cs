@@ -7,8 +7,8 @@ namespace AutomationFinalProject.PageObjects
 {
     public partial class HomePage
     {
-        private IWebDriver _driver;
-        private WebDriverWait _driverWait;
+        private readonly IWebDriver _driver;
+        private readonly WebDriverWait _driverWait;
 
         public HomePage(IWebDriver driver)
         {
@@ -22,12 +22,23 @@ namespace AutomationFinalProject.PageObjects
             SearchBar.SendKeys(Keys.Enter);
         }
 
-        public void ClickOnProductCategory(string category, string subCategory)
+        public void ClickOnProductSubCategory(string category, string subCategory)
         {
             Actions action = new Actions(_driver);
             action.MoveToElement(ProductCategoryButton(category)).Perform();
             ProductSubCategoryButton(category, subCategory).Click();
         }
+
+        public void ClickOnProductCategory(string category)
+        {
+            ProductCategoryButton(category).Click();
+        }
+
+        public void GoToWishListPage()
+        {
+            WishListButton.Click();
+        }
+
 
         public void GoToLoginPage()
         {

@@ -2,27 +2,19 @@
 
 namespace AutomationFinalProject.PageObjects
 {
-    public partial class WishlistPage
+    public partial class WishListPage
     {
-        private IWebDriver _driver;
+        private readonly IWebDriver _driver;
 
-        public WishlistPage(IWebDriver driver)
+        public WishListPage(IWebDriver driver)
         {
             _driver = driver;
         }
 
-        public void CreateWishlist(string wishlistName, string wishlistComment, string extraInfo, string customerName, string customerEmail)
+        public void SearchForWishList(string wishListName)
         {
-            WishlistNameTextField.SendKeys(wishlistName);
-            WishlistCommentTextField.SendKeys(wishlistComment);
-            WishlsitExtraInfoTextField.SendKeys(extraInfo);
-            ScrollHelper.ScrollToView(_driver, WishlistCustomerNameTextField);
-            WishlistCustomerNameTextField.SendKeys(customerName);
-            WishlistCustomerEmailTextField.SendKeys(customerEmail);
-            WishlistConfidentialityCheckBox.Click();
-
-            // Wishlist save disabled because is live app
-            //WishListSaveButton.Click();
+            WishListSearchBar.SendKeys(wishListName);
+            WishListSearchButton.Click();
         }
     }
 }

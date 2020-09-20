@@ -6,8 +6,8 @@ namespace AutomationFinalProject.PageObjects
 {
     public partial class ProductOverviewPage
     {
-        private IWebDriver _driver;
-        private WebDriverWait _driverWait;
+        private readonly IWebDriver _driver;
+        private readonly WebDriverWait _driverWait;
 
         public ProductOverviewPage(IWebDriver driver)
         {

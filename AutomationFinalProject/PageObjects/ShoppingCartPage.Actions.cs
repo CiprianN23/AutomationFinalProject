@@ -4,7 +4,7 @@ namespace AutomationFinalProject.PageObjects
 {
     public partial class ShoppingCartPage
     {
-        private IWebDriver _driver;
+        private readonly IWebDriver _driver;
 
         public ShoppingCartPage(IWebDriver driver)
         {
