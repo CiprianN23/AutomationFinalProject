@@ -24,6 +24,7 @@ namespace AutomationFinalProject.PageObjects
             if (index >= SearchedProductsList.Count())
                 return;
 
+            ScrollHelper.ScrollToView(_driver, SearchedProductsList.ElementAt(index));
             SearchedProductsList.ElementAt(index).Click();
         }
 
