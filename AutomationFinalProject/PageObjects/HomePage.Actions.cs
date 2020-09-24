@@ -31,7 +31,18 @@ namespace AutomationFinalProject.PageObjects
 
         public void ClickOnProductCategory(string category)
         {
-            ProductCategoryButton(category).Click();
+            if (ProductCategoryButton(category).Displayed == false)
+            {
+                Actions action = new Actions(_driver);
+                action.MoveToElement(MoreCategoriesButton);
+
+                ProductCategoryButton(category).Click();
+            }
+            else
+            {
+                ProductCategoryButton(category).Click();
+            }
+            
         }
 
         public void GoToWishListPage()

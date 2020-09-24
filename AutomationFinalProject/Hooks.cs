@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -21,7 +22,19 @@ namespace AutomationFinalProject
         [TearDown]
         public void TearDown()
         {
+            TakeScreenshot();
             Driver.Quit();
+        }
+
+        private void TakeScreenshot()
+        {
+            if (TestContext.CurrentContext.Result.Outcome.Status != TestStatus.Failed)
+                return;
+
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd-hhmm-ss");
+            string title = TestContext.CurrentContext.Test.MethodName;
+            Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
+            image.SaveAsFile($"C:\\testscreenshot\\{title} {timestamp}.jpg", ScreenshotImageFormat.Jpeg);
         }
     }
 }
