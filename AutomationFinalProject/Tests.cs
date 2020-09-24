@@ -152,15 +152,6 @@ namespace AutomationFinalProject
 
             myhHomePage.ClickOnProductCategory("Home Gadgets");
             Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
-
-            myhHomePage.ClickOnProductCategory("Sport & Sanatate");
-            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
-
-            myhHomePage.ClickOnProductCategory("Auto & Calatorii");
-            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
-
-            myhHomePage.ClickOnProductCategory("Servicii");
-            Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
         }
 
         [Test]

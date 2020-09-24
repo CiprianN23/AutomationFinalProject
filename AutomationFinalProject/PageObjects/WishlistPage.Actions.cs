@@ -14,6 +14,7 @@ namespace AutomationFinalProject.PageObjects
         public void SearchForWishList(string wishListName)
         {
             WishListSearchBar.SendKeys(wishListName);
+            ScrollHelper.ScrollToView(_driver, WishListSearchButton);
             WishListSearchButton.Click();
         }
     }

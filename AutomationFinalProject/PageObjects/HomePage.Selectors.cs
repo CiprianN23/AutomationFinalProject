@@ -10,7 +10,6 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement ProductSubCategoryButton(string category, string subCategory) => _driver.FindElement(By.XPath($"//ul[@id='top_menu']//a[contains(text(), '{category}')]/..//a[text()='{subCategory}']"));
         private IWebElement MyAccountButton => _driver.FindElement(By.Id("h_account_top"));
         private IWebElement WishListButton => _driver.FindElement(By.XPath("//nav[@id='topmenu']//a[contains(text(), 'Wishlist')]"));
-        private IWebElement MoreCategoriesButton => _driver.FindElement(By.Id("cat_more"));
 
         public IWebElement CategoryNamElement => _driver.FindElement(By.Id("category_name"));
     }
