@@ -6,7 +6,7 @@ namespace AutomationFinalProject
 {
     public class Tests : Hooks
     {
-        [Test]
+        [Test, Category("Smoke Test")]
         public void AddProductToCart()
         {
             HomePage myHomePage = new HomePage(Driver);
@@ -51,7 +51,7 @@ namespace AutomationFinalProject
             Assert.IsTrue(myWishlistPage.WishlistConfidentialityCheckBox.Displayed);
         }
 
-        [Test]
+        [Test, Category("Smoke Test")]
         public void LoginWithInvalidData()
         {
             HomePage myHomePage = new HomePage(Driver);
@@ -62,7 +62,7 @@ namespace AutomationFinalProject
             Assert.IsTrue(myLoginRegisterPage.LoginInvalidError.Displayed);
         }
 
-        [Test]
+        [Test, Category("Smoke Test")]
         public void RegisterWithoutClickingConfidentialityBox()
         {
             HomePage myHomePage = new HomePage(Driver);
@@ -73,7 +73,7 @@ namespace AutomationFinalProject
             Assert.IsTrue(myLoginRegisterPage.RegisterConfidentialityError.Displayed);
         }
 
-        [Test]
+        [Test, Category("Smoke Test")]
         public void LoginWithValidData()
         {
             HomePage myHomePage = new HomePage(Driver);
