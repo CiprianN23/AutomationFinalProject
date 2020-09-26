@@ -25,6 +25,7 @@ namespace AutomationFinalProject.PageObjects
 
         public void ClickOnProductSubCategory(string category, string subCategory)
         {
+            Thread.Sleep(1000);
             Actions action = new Actions(_driver);
             action.MoveToElement(ProductCategoryButton(category)).Perform();
             ProductSubCategoryButton(category, subCategory).Click();
