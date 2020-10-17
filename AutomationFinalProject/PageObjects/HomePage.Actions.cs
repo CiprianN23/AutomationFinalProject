@@ -1,8 +1,7 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
-using OpenQA.Selenium.Interactions;
-using System.Threading;
 
 namespace AutomationFinalProject.PageObjects
 {
@@ -32,7 +31,6 @@ namespace AutomationFinalProject.PageObjects
 
         public void ClickOnProductCategory(string category)
         {
-            Thread.Sleep(1000);
             ProductCategoryButton(category).Click();
         }
 
@@ -40,7 +38,6 @@ namespace AutomationFinalProject.PageObjects
         {
             WishListButton.Click();
         }
-
 
         public void GoToLoginPage()
         {

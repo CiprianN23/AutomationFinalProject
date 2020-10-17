@@ -2,7 +2,6 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Linq;
-using System.Threading;
 
 namespace AutomationFinalProject.PageObjects
 {
@@ -26,7 +25,6 @@ namespace AutomationFinalProject.PageObjects
                 return;
 
             ScrollHelper.ScrollToView(_driver, SearchedProductsList.ElementAt(index));
-            Thread.Sleep(1000);
             SearchedProductsList.ElementAt(index).Click();
         }
 
@@ -54,6 +52,5 @@ namespace AutomationFinalProject.PageObjects
 
             FilterNameButton(filterCategoryName).ElementAt(filterIndex).Click();
         }
-
     }
 }

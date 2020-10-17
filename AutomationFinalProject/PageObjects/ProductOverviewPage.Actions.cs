@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace AutomationFinalProject.PageObjects
 {
@@ -19,7 +18,6 @@ namespace AutomationFinalProject.PageObjects
         public void ClickOnAddToShoppingCartButton()
         {
             ScrollHelper.ScrollToView(_driver, AddToCartButton);
-            Thread.Sleep(1000);
             AddToCartButton.Click();
         }
     }
