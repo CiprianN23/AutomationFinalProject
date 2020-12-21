@@ -8,7 +8,7 @@ namespace AutomationFinalProject
 {
     public class Hooks
     {
-        protected IWebDriver Driver { get; init; }
+        protected IWebDriver Driver { get; private set; }
 
         [SetUp]
         public void SetUp()
