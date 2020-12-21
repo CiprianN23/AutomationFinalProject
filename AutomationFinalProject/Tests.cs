@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using AutomationFinalProject.PageObjects;
+﻿using AutomationFinalProject.PageObjects;
 using NUnit.Framework;
+using System.Linq;
 
 namespace AutomationFinalProject
 {
@@ -34,7 +34,7 @@ namespace AutomationFinalProject
             mySearchedProductsPage.SortProductsByText("Rating clienti");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(0);
             myProductOverviewPage.ClickOnAddToShoppingCartButton();
-            
+
             myHomePage.ClickOnProductSubCategory("Componente", "Procesoare");
             mySearchedProductsPage.SortProductsByText("Numar vizualizari");
             mySearchedProductsPage.ClickOnSpecifiedProductByIndex(1);

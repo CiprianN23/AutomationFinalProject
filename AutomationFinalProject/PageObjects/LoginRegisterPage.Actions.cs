@@ -5,6 +5,7 @@ namespace AutomationFinalProject.PageObjects
     public partial class LoginRegisterPage
     {
         private readonly IWebDriver _driver;
+
         public LoginRegisterPage(IWebDriver driver)
         {
             _driver = driver;

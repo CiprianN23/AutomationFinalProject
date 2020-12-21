@@ -1,14 +1,14 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace AutomationFinalProject
 {
     public class Hooks
     {
-        protected IWebDriver Driver { get; private set; }
+        protected IWebDriver Driver { get; init; }
 
         [SetUp]
         public void SetUp()
