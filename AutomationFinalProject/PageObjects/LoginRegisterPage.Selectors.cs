@@ -7,8 +7,8 @@ namespace AutomationFinalProject.PageObjects
         private IWebElement LoginEmailTextField => _driver.FindElement(By.Id("email"));
         private IWebElement LoginPasswordTextField => _driver.FindElement(By.Id("password"));
         private IWebElement LoginButton => _driver.FindElement(By.XPath("//button[@class='btn button-custom-red' and contains(text(), 'Autentificare')]"));
-        public IWebElement LoginInvalidError => _driver.FindElement(By.XPath("//div[@id='auth-login-wrapper']//p[@class='error-text']"));
-        public IWebElement LoginSuccessElement => _driver.FindElement(By.XPath("//div[@class='form_content' and contains(text(), 'ID-ul tau de client este')]"));
+        public IWebElement LoginInvalidError => _driver.FindElement(By.XPath("//*[@id=\"auth - login - wrapper\"]/div"));
+        public IWebElement LoginSuccessElement => _driver.FindElement(By.XPath("//div//h4[contains(text(), 'Este necesara confirmarea autentificarii!')]"));
 
         private IWebElement RegisterFirstNameTextField => _driver.FindElement(By.Id("newfirstname"));
         private IWebElement RegisterLastNameTextField => _driver.FindElement(By.Id("newlastname"));

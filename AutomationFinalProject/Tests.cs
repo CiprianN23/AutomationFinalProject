@@ -135,7 +135,7 @@ namespace AutomationFinalProject
             myhHomePage.ClickOnProductCategory("Periferice & Monitoare");
             Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
 
-            myhHomePage.ClickOnProductCategory("Software");
+            myhHomePage.ClickOnProductCategory("Software & Papetarie");
             Assert.IsTrue(myhHomePage.CategoryNamElement.Displayed);
 
             myhHomePage.ClickOnProductCategory("Printing");

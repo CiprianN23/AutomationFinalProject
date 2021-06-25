@@ -13,7 +13,14 @@ namespace AutomationFinalProject
         [SetUp]
         public void SetUp()
         {
-            Driver = new ChromeDriver();
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddExcludedArgument("enable-automation");
+            chromeOptions.AddAdditionalOption("useAutomationExtension", false);
+            chromeOptions.AddArgument("--disable-blink-features=AutomationControlled");
+            chromeOptions.AddArgument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36");
+            chromeOptions.AddArgument("--remote-debugging-port=9222");
+
+            Driver = new ChromeDriver(chromeOptions);
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl("https://www.pcgarage.ro/");
